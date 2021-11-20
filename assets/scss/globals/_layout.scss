@@ -1,0 +1,168 @@
+@use '../util/' as *;
+@use 'fonts';
+@use 'colors';
+
+// Reset
+
+*,
+*:before,
+*:after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+html {
+	font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+	font-family: fonts.$font-family;
+	background: colors.$very-dark-blue-main-bg;
+	color: colors.$soft-blue;
+	font-size: 1.4rem;
+
+	@include breakpoint(medium) {
+		font-size: 1.8rem;
+	}
+}
+
+h1 {
+	color: colors.$white;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 0 3rem;
+	max-width: 1440px;
+	min-height: 100vh;
+}
+
+.grid {
+	display: grid;
+	-ms-grid-columns: 100%;
+	grid-template-columns: 100%;
+
+	@include breakpoint(medium) {
+		display: grid;
+		grid-template-columns: 250px 1fr;
+	}
+
+	gap: 2rem;
+}
+
+.label {
+	padding: 0.5rem 1rem;
+	font-size: 1.4rem;
+	font-weight: 700;
+	border-radius: 6px;
+}
+
+.attribution {
+	margin-top: 4rem;
+	font-size: 1.1rem;
+	text-align: center;
+	color: colors.$soft-blue;
+
+	a {
+		color: colors.$white;
+	}
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+// margin and padding values array
+$space-values: (0, 2, 3, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50) !default;
+
+// margin and padding shorthands
+$space-prefixes: (
+	p: padding,
+	pt: padding-top,
+	pr: padding-right,
+	pb: padding-bottom,
+	pl: padding-left,
+	m: margin,
+	mt: margin-top,
+	mr: margin-right,
+	mb: margin-bottom,
+	ml: margin-left,
+) !default;
+
+@mixin make-spaces() {
+	@each $attr-short, $attr-long in $space-prefixes {
+		@each $value in $space-values {
+			.#{$attr-short}-#{$value} {
+				#{$attr-long}: #{$value}#{'rem !important'};
+			}
+		}
+	}
+}
+
+@include make-spaces();
+
+.flex {
+	display: flex;
+	gap: 2rem;
+}
+
+.flex-row {
+	display: flex;
+	flex-direction: column;
+	gap: 4rem;
+
+	@include breakpoint(medium) {
+		flex-direction: row;
+	}
+
+	.col {
+		align-self: center;
+	}
+	.col-p {
+		padding: 2rem;
+	}
+}
+
+.flex-reverse {
+	@include breakpoint(medium) {
+		gap: 20rem;
+		flex-direction: row-reverse;
+	}
+}
+
+.icon {
+	color: white;
+	width: 2rem;
+	font-size: 2rem;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	justify-content: flex-end;
+
+	&__input {
+		input {
+			width: 100%;
+			padding: 1rem;
+			border-radius: 6px;
+		}
+	}
+
+	.btn {
+		align-self: flex-end;
+	}
+}

@@ -1,0 +1,15 @@
+{
+  "name": "nft-preview-card-component",
+  "version": "1.0.0",
+  "description": "![Design preview for the NFT preview card component coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "sass-dev": "sass --watch --update --style=expanded assets/scss:assets/css",
+    "sass-prod": "sass --no-source-map --style=compressed assets/scss:assets/css"
+  },
+  "author": "Thomas Jonstrup (https://thomasjonstrup.dk/)",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.43.4"
+  }
+}
