@@ -20,9 +20,24 @@
 		border-top: 1px solid $very-dark-blue-line;
 	}
 
-	h1 {
+	&__title {
 		font-size: 2.2rem;
 		font-weight: 600;
+		color: $white;
+		cursor: pointer;
+
+		margin: 0.67em 0;
+
+		&:hover {
+			color: $cyan;
+		}
+	}
+
+	&__link {
+		color: $white;
+		&:hover {
+			color: $cyan;
+		}
 	}
 
 	&__image {

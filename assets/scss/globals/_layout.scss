@@ -2,28 +2,6 @@
 @use 'fonts';
 @use 'colors';
 
-// Reset
-
-*,
-*:before,
-*:after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-ul {
-	list-style: none;
-}
-
-a {
-	text-decoration: none;
-}
-
-html {
-	font-size: 62.5%; // 1rem = 10px
-}
-
 body {
 	font-family: fonts.$font-family;
 	background: colors.$very-dark-blue-main-bg;
@@ -46,7 +24,6 @@ h1 {
 	flex-direction: column;
 	padding: 0 3rem;
 	max-width: 1440px;
-	min-height: 100vh;
 }
 
 .grid {
@@ -74,9 +51,14 @@ h1 {
 	font-size: 1.1rem;
 	text-align: center;
 	color: colors.$soft-blue;
+	text-align: center;
 
-	a {
+	&__link {
 		color: colors.$white;
+
+		&:hover {
+			color: colors.$cyan;
+		}
 	}
 }
 
